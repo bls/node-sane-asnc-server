@@ -1,0 +1,34 @@
+{
+  "name": "@sane/promisify-listen",
+  "version": "0.0.1",
+  "description": "Promisify network server bind & close.",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "prepublish": "tslint src/*.ts && tsc",
+    "test": "mocha dist/test.js"
+  },
+  "files": [
+    "dist/index.js",
+    "dist/index.d.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bls/node-sane-promisify-listen.git"
+  },
+  "keywords": [
+    "promisify",
+    "server"
+  ],
+  "author": "Blair Strang <blair.strang@gmail.com>",
+  "homepage": "https://github.com/bls/node-sane-promisify-listen",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^2.2.4",
+    "tslint": "^3.2.1",
+    "typescript": "^1.7.5"
+  },
+  "dependencies": {
+    "es6-promisify": "^3.0.0"
+  }
+}
