@@ -30,7 +30,7 @@ export interface HasAsyncListen {
 
 function withErrorHandler(ee: events.EventEmitter, ppf: Function): Function {
     return function(): Promise<any> {
-        let fnargs = Array.prototype.slice.call(arguments);  // Breaks optimization; don't care...
+        var fnargs = Array.prototype.slice.call(arguments);  // Breaks optimization; don't care...
         return new Promise(function (resolve, reject) {
             function catcher(err: any) {
                 reject(err);
@@ -48,7 +48,7 @@ function withErrorHandler(ee: events.EventEmitter, ppf: Function): Function {
 }
 
 export function promisifyListen<T extends IServer>(server: T): T & HasAsyncListen {
-    let s: any = server;
+    var s: any = server;
     s['listenAsync'] = withErrorHandler(server, promisify(server.listen));
     s['closeAsync'] = withErrorHandler(server, promisify(server.close));
     return <T & HasAsyncListen> server; // Trust me!
